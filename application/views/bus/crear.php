@@ -5,11 +5,11 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>BUSES</h1>
+            <h1>FLOTAS</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">BUSES</a></li>
+              <li class="breadcrumb-item"><a href="#">Flotas</a></li>
               <li class="breadcrumb-item active">Crear</li>
             </ol>
           </div>
@@ -77,7 +77,7 @@
                   
                   <div class="form-group row">
                     <div class="col-sm-10">
-                      <button type="submit" class="btn btn-primary">Registrar</button>
+                      <button type="submit" class="btn btn-primary">Registro</button>
                     </div>
                   </div>
                 </form>
