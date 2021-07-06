@@ -24,7 +24,7 @@
           <div class="col-12">
             <div class="card">
               <div class="card-header">                
-                <h3 class="card-title">formulario Registr de Buses</h3>
+                <h3 class="card-title">formulario Registro de los Buses</h3>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
