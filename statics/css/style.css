@@ -4,3 +4,38 @@ table#example2 td a {
     margin: 0 5px;
     min-width: 24px;
 }
+.login-logo .img{
+    background-image: url('/webterminal/statics/img/logo.png');
+    background-repeat: no-repeat;
+    width: 80px;
+    height: 50px;
+    margin: 0 auto;
+}
+
+.table.table-responsive thead tr th{
+    text-align: center; 
+    vertical-align: middle;
+}
+.table.table-responsive tbody tr td.asiento{
+    background-image: url('/webterminal/statics/img/asiento1.png');
+    background-repeat: no-repeat;
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+    background-position: center;
+    font-weight: bold;
+    text-align: center;
+}
+
+.table.table-responsive tbody tr td.pasillo{
+    width: 50px;
+    height: 48px;
+}
+
+table#piso1 tbody, table#piso2 tbody{
+    background-image: url("/webterminal/statics/img/piso.png");
+}
+
+.inactivo{
+    background-color: #ccc;
+}

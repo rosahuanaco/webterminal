@@ -15,7 +15,7 @@ class Base_Model extends CI_Model {
 		return $this->db->update ( $tabla, $datos, $condicion );
 	}
 
-	public function saveMany($tabla, $datos){
+	public function guardarMuchos($tabla, $datos){
 	    if ($this->db->insert_batch($tabla, $datos )) {
 	        return $this->db->insert_id ();
 	    }

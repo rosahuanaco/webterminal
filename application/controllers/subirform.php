@@ -95,4 +95,12 @@ class Flota extends CI_Controller {
 		}		 	
 		echo json_encode($response);
 	}
+	public function subirimagen()
+	{
+		$data['idimagen']=$_POST['idimagen'];
+
+		$this->load->view('inc_head.php');
+		$this->load->view('subirform',$data);
+		$this->load->view('inc_footer.php');
+	}
 }

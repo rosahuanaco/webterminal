@@ -1,10 +1,4 @@
 <!-- /.content-wrapper -->
-<footer class="main-footer">
-    <div class="float-right d-none d-sm-block">
-      <b>Version</b> 3.1.0
-    </div>
-    <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
-  </footer>
 
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
@@ -15,10 +9,10 @@
 <!-- ./wrapper -->
 
 <!-- jQuery -->
-<script src="<?=base_url()?>statics/js/jquery-3.6.0.min.js"></script>
+<script src="<?=base_url()?>statics/js/bootstrap/jquery-3.6.0.min.js"></script>
 <!-- Bootstrap 4 -->
-<script src="<?=base_url()?>statics/js/bootstrap.js"></script>
-<script src="<?=base_url()?>statics/js/bootstrap-datepicker.js"></script>
+<script src="<?=base_url()?>statics/js/bootstrap/bootstrap.js"></script>
+<script src="<?=base_url()?>statics/js/bootstrap/bootstrap-datepicker.js"></script>
 <script src="<?=base_url()?>adminlte/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- DataTables  & Plugins -->
 <script src="<?=base_url()?>adminlte/plugins/datatables/jquery.dataTables.min.js"></script>

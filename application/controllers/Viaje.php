@@ -1,32 +1,34 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
+require_once (APPPATH . 'controllers/Controller.php');
 
-class Publicacion extends CI_Controller {
+class Viaje extends Controller {
 
 	public function __construct()
     {
         parent::__construct();        
-        $this->load->model('Publicacion_Model', 'Publicacion');
+        $this->load->model('Viaje_Model', 'Viaje');
         $this->load->library("form_validation");
 		$this->load->helper('util');
     }
 
 	public function index()
 	{
-		$publicaciones = $this->Publicacion->toList();
-		$data = array("publicaciones"=>$publicaciones);
+		$viajes = $this->Viaje->toList();
+		$data = array("viajes"=>$viajes);
 		$this->load->view('inc_head');
-		$this->load->view('inc_menu');
+		$this->load->view($this->session->userdata('menu'));
 		$this->load->view('inc_principal',$data);
 		$this->load->view('inc_footer');
 	}
 	public function crear(){
-		$lugares = $this->Publicacion->obtener("lugar",false,false);
-		$flotas = $this->Publicacion->obtener("flota",array("estado"=>"Activo"),false);
-		$data = array("lugares"=>$lugares,"flotas"=>$flotas);
+		$departamento = $this->Viaje->obtener("departamento",false,false);
+		$buses = $this->Viaje->obtener("bus",array("estado"=>"Activo"),false);
+		$chofers = $this->Viaje->obtener("chofer",false,false);
+		$data = array("departamentos"=>$departamento,"buses"=>$buses,"chofers"=>$chofers);
 		$this->load->view('inc_head');
-		$this->load->view('inc_menu');
-		$this->load->view('publicacion/crear',$data);
+		$this->load->view("inc_menu");//$this->session->userdata('menu')
+		$this->load->view('viaje/crear',$data);
 		$this->load->view('inc_footer');
 	}
 	public function guardar(){
@@ -34,6 +36,7 @@ class Publicacion extends CI_Controller {
 		$origen = $this->input->post('origen');
 		$destino = $this->input->post('destino');
 		$bus = $this->input->post('bus');
+		$chofer = $this->input->post('chofer');
 		$precio = $this->input->post('precio');
 		//USANDO HELPER
 		$fecha = convertDateTime($this->input->post('fecha'));
@@ -50,15 +53,16 @@ class Publicacion extends CI_Controller {
 				"destino"=>$destino,
 				"bus"=>$bus,
 				"precio"=>$precio,
-				"fecha_salida"=>$fecha
+				"fecha_salida"=>$fecha,
+				"chofer"=>$chofer
 			);
 			if($id>0){
-				if($this->Publicacion->modificar("publicaciones", $datos,array("id"=>$id))){
+				if($this->Viaje->modificar("viaje", $datos,array("id"=>$id))){
 					$respuesta["exito"]=200;
 					$respuesta["mensaje"]="Se registro con exito";
 				}
 			}else{
-				if($this->Publicacion->guardar("publicaciones", $datos)){
+				if($this->Viaje->guardar("viaje", $datos)){
 					$respuesta["exito"]=200;
 					$respuesta["mensaje"]="Se registro con exito";
 				}
@@ -86,14 +90,38 @@ class Publicacion extends CI_Controller {
 	}
 
 	public function editar($id){
-		$publicacion = $this->Publicacion->obtener("publicaciones",array("id"=>$id));
-		$lugares = $this->Publicacion->obtener("lugar",false,false);
-		$flotas = $this->Publicacion->obtener("flota",array("estado"=>"Activo"),false);
-		$data = array("lugares"=>$lugares,"flotas"=>$flotas,"publicacion"=>$publicacion);
+		$viaje = $this->Viaje->obtener("viaje",array("id"=>$id));
+		$departamentos = $this->Viaje->obtener("departamento",false,false);
+		$buses = $this->Viaje->obtener("bus",array("estado"=>"Activo"),false);
+		$chofers = $this->Viaje->obtener("chofer",false,false);
+		$data = array("departamentos"=>$departamentos,"buses"=>$buses,"viaje"=>$viaje,"chofers"=>$chofers);
 		$this->load->view('inc_head');
-		$this->load->view('inc_menu');
-		$this->load->view('publicacion/editar',$data);
+		$this->load->view($this->session->userdata('menu'));
+		$this->load->view('viaje/editar',$data);
 		$this->load->view('inc_footer');
+	}
+
+	public function cambiarEstado(){
+		$response = array(
+			"exito"=>400,
+			"estado"=>""
+		);
+		try {
+			if($this->input->post('id') > 0)
+			{
+				$id=$this->input->post('id');
+				$viaje = $this->Viaje->obtener("viaje",array("id"=>$id));
+				if(is_object($viaje)){
+					$estado = $viaje->estado=='Activo'?'Inactivo':'Activo';
+					$this->Viaje->modificar("viaje",array("estado"=>$estado),array("id"=>$id));
+					$response["exito"] = 200;
+					$response["estado"] = $estado;
+				}				
+			}
+		}catch (Exception $e) {
+
+		}		 	
+		echo json_encode($response);
 	}
 	
 	public function eliminar(){
@@ -104,7 +132,7 @@ class Publicacion extends CI_Controller {
 		if($this->input->post('id') > 0)
 		{
 			$id=$this->input->post('id');
-			$this->Publicacion->eliminar("publicaciones",$id);	
+			$this->Viaje->eliminar("viaje",$id);	
 			$response["exito"] = 200;
 		} 	
 		echo json_encode($response);	
