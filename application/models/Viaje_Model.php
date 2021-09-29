@@ -56,4 +56,30 @@ class Viaje_Model extends Base_Model
         }
         return false;
     }
+
+    public function obtenerAsientos($viaje_id){
+        $this->db->select("a.id,a.bus,a.piso,a.fila,a.columna,a.numero");
+        $this->db->from("viaje v");
+        $this->db->join("asiento a","a.bus=v.bus");
+        $this->db->where("v.id",$viaje_id);
+        $this->db->order_by("a.piso","ASC");
+        $this->db->order_by("a.numero","ASC");
+        $query = $this->db->get();
+        if ($query->num_rows() > 0) {
+            return $query->result();
+        }
+        return false;
+    }
+    public function obtenerAsientosReservados($viaje_id){
+        $this->db->select("vd.asiento,ve.id reserva_id,ve.pasajero,vd.nombre_pasajero,vd.ci");
+        $this->db->from("viaje v");
+        $this->db->join("venta ve","ve.viaje=v.id");
+        $this->db->join("venta_detalle vd","vd.venta=ve.id");
+        $this->db->where("v.id",$viaje_id);
+        $query = $this->db->get();
+        if ($query->num_rows() > 0) {
+            return $query->result();
+        }
+        return false;
+    }
 }

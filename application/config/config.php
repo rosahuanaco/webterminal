@@ -24,6 +24,26 @@ date_default_timezone_set ( "America/La_Paz" );
 |
 */
 $config['base_url'] = '';
+$http = "http://";
+if (isset ( $_SERVER ["HTTPS"] ) && $_SERVER ["HTTPS"] == "on") {
+    $http = "https://";
+}
+$sname = isset ( $_SERVER ["SERVER_NAME"] ) ? strtolower ( $_SERVER ["SERVER_NAME"] ) : "";
+$saddress = isset ( $_SERVER ["SERVER_ADDR"] ) ? $_SERVER ["SERVER_ADDR"] : "";
+switch ($sname) {
+    case "webterminalbol.000webhostapp.com/" :
+        $config ['base_url'] = $http . $sname . '/';
+        break;
+    default :
+        $ext = BASEPATH . "../../webterminal/";
+        if (is_dir ( $ext )) {
+            $config ['base_url'] = $http . $sname . ($_SERVER ["SERVER_PORT"] != 80 ? ":" . $_SERVER ["SERVER_PORT"] : "") . '/webterminal/';
+        } else {
+            $config ['base_url'] = $http . $sname .'/webterminal/';
+        }
+        
+        break;
+}
 
 /*
 |--------------------------------------------------------------------------

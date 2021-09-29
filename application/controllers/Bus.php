@@ -37,7 +37,6 @@ class Bus extends Controller {
 			$fila = $this->input->post('filas');
 			$columna = $this->input->post('columnas');
 			$fila2 = $this->input->post('filas2');
-			$columna2 = $this->input->post('columnas2');
 			$piso = $this->input->post('pisos');
 			
 
@@ -59,7 +58,6 @@ class Bus extends Controller {
 					"filas"=>$fila,
 					"columnas"=>$columna,
 					"filas2"=>$fila2,
-					"columnas2"=>$columna2,
 					"piso"=>$piso
 				);
 				if($id>0){
@@ -71,7 +69,6 @@ class Bus extends Controller {
 						unset($datos["filas"]);
 						unset($datos["columnas"]);
 						unset($datos["filas2"]);
-						unset($datos["columnas2"]);
 						unset($datos["piso"]);
 
 					}

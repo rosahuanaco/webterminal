@@ -71,18 +71,22 @@
                                           
                     </div>
                     <div class="col-sm-2">
+                    <h5 for="filas">Datos asiento</h5>
                       <label for="pisos">Cantidad pisos</label>
                       <select class="form-control" id="pisos" name="pisos">
                               <option value="1">1</option>
                               <option value="2">2</option>
                         </select>
-                        <br>
-                        <h5 for="filas">PISO 1</h5>
+                        <br>                        
                         <table class="table table-responsive">
                               <tbody>
                                   <tr>
-                                      <td><label for="filas">Filas</label></td>
+                                      <td><label for="filas">Filas Piso 1</label></td>
                                       <td><input name="filas" type="number" class="form-control" placeholder="Filas" id="filas" min="0" data-bind="value:filas" required></td>
+                                  </tr>
+                                  <tr id="inputPiso2" style="visibility: collapse;">
+                                      <td><label for="filas2">Filas Piso 2</label></td>
+                                      <td><input name="filas2" type="number" class="form-control" placeholder="Filas" id="filas2" min="0" data-bind="value:filas" required></td>
                                   </tr>
                                   <tr>
                                       <td><label for="columnas">Columnas</label></td>
@@ -93,39 +97,10 @@
                                           </select>
                                       </td>
                                   </tr>
-                                  <tr>
-                                      <td><label for="numeroInicial">Numero Inicial</label></td>
-                                      <td><input name="numeroInicial" type="number" class="form-control" placeholder="Numero asiento" id="numeroInicial" min="0" data-bind="value:numeroInicial" required></td>
-                                  </tr>
                               </tbody>
                         </table>                      
                         
-                                                                    
-                        <div id="inputPiso2" style="display:none;">
-                          <br>
-                          <h5>PISO 2</h5>
-                          <table class="table table-responsive">
-                                <tbody>
-                                    <tr>
-                                        <td><label for="filas2">Filas</label></td>
-                                        <td><input name="filas2" type="number" class="form-control" placeholder="Filas" id="filas2" min="0" data-bind="value:filas2"></td>
-                                    </tr>
-                                    <tr>
-                                        <td><label for="columnas2">Columnas</label></td>                                      
-                                        <td>
-                                          <select class="form-control" id="columnas2" name="columnas2">
-                                                <option value="3">3</option>
-                                                <option value="4">4</option>
-                                          </select>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td><label for="numeroInicial2">Numero Inicial</label></td>
-                                        <td><input name="numeroInicial2" type="number" class="form-control" placeholder="Numero asiento" id="numeroInicial2" min="0" data-bind="value:numeroInicial2"></td>
-                                    </tr>
-                                </tbody>
-                          </table>
-                        </div> 
+                                                                                            
                         <div class="form-group row">
                           <button id="btnGenerar" class="btn btn-primary">Generar</button>
                         </div>

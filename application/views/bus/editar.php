@@ -85,8 +85,12 @@
                         <table class="table table-responsive">
                               <tbody>
                                   <tr>
-                                      <td><label for="filas">Filas</label></td>
+                                      <td><label for="filas">Filas Piso1</label></td>
                                       <td><input name="filas" type="number" value="<?=$bus->filas?>" class="form-control" placeholder="Filas" id="filas" min="0" data-bind="value:filas" required></td>
+                                  </tr>
+                                  <tr id="inputPiso2" <?=$bus->piso==2?'':'style="visibility: collapse;"'?>>
+                                      <td><label for="filas2">Filas Piso2</label></td>
+                                      <td><input name="filas2" type="number"  value="<?=$bus->filas2?>" class="form-control" placeholder="Filas" id="filas2" min="0" data-bind="value:filas" required></td>
                                   </tr>
                                   <tr>
                                       <td><label for="columnas">Columnas</label></td>
@@ -97,38 +101,8 @@
                                           </select>
                                       </td>
                                   </tr>
-                                  <tr>
-                                      <td><label for="numeroInicial">Numero Inicial</label></td>
-                                      <td><input name="numeroInicial" type="number" value="<?=current($asientos1)?current($asientos1)->numero:''?>" class="form-control" placeholder="Numero asiento" id="numeroInicial" min="0" data-bind="value:numeroInicial" required></td>
-                                  </tr>
                               </tbody>
                         </table>                      
-                        
-                                                                    
-                        <div id="inputPiso2" <?=$bus->piso==2?'':'style="display:none;"'?>>
-                          <h5>PISO 2</h5>
-                          <table class="table table-responsive">
-                                <tbody>
-                                    <tr>
-                                        <td><label for="filas2">Filas</label></td>
-                                        <td><input name="filas2" type="number" class="form-control" value="<?=$bus->filas2?>" placeholder="Filas" id="filas2" min="0" data-bind="value:filas2"></td>
-                                    </tr>
-                                    <tr>
-                                        <td><label for="columnas2">Columnas</label></td>                                      
-                                        <td>
-                                          <select class="form-control" id="columnas2" name="columnas2">
-                                                <option value="3" <?=$bus->columnas2==3?'selected':''?>>3</option>
-                                                <option value="4" <?=$bus->columnas2==4?'selected':''?>>4</option>
-                                          </select>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td><label for="numeroInicial2">Numero Inicial</label></td>
-                                        <td><input name="numeroInicial2" type="number" value="<?=current($asientos2)?current($asientos2)->numero:''?>" class="form-control" placeholder="Numero asiento" id="numeroInicial2" min="0" data-bind="value:numeroInicial2"></td>
-                                    </tr>
-                                </tbody>
-                          </table>
-                        </div> 
                         <div class="form-group row">
                           <button id="btnGenerar" class="btn btn-primary">Generar</button>
                         </div>
@@ -143,7 +117,7 @@
                             <tbody>
                               <?php for($i=0;$i<$bus->filas;$i++):?>
                                 <tr>
-                                <?php for($c=0;$c<$bus->columnas;$c++):?>
+                                <?php for($c=0;$c<=$bus->columnas;$c++):?>
                                     <?php $index = ((int)$i*10)+(int)$c; if(isset($asientos1[$index])):?>
                                     <td class="asiento">
                                       <input name='asientoids[]' type='hidden' value='<?=$asientos1[$index]->id?>'>
@@ -158,6 +132,7 @@
                                     <?php endif;?>
                                     <?php if($c==1):?>
                                       <td class="pasillo"></td>
+                                      <?php $c++;?>
                                     <?php endif;?>
                                 <?php endfor;?>
                                 </tr>
@@ -175,7 +150,7 @@
                             <tbody>
                               <?php for($i=0;$i<$bus->filas2;$i++):?>
                                   <tr>
-                                  <?php for($c=0;$c<$bus->columnas2;$c++):?>
+                                  <?php for($c=0;$c<=$bus->columnas;$c++):?>
                                       <?php $index = ((int)$i*10)+(int)$c; if(isset($asientos2[$index])):?>
                                       <td class="asiento">
                                         <input name='asientoids[]' type='hidden' value='<?=$asientos2[$index]->id?>'>
@@ -190,6 +165,7 @@
                                       <?php endif;?>
                                       <?php if($c==1):?>
                                         <td class="pasillo"></td>
+                                        <?php $c++;?>
                                       <?php endif;?>
                                   <?php endfor;?>
                                   </tr>

@@ -348,65 +348,79 @@ function cambiarEstadoBus(idBus,element){
 }
 
 var eliminados = {};
+var columnas;
+var numeroInicial=1;
 function agregarAsientos(){
     $("#pisos").change(function(){
         if($(this).val()==2){
-             $("#inputPiso2").css('display','block');
+             $("#inputPiso2").css('visibility','visible');
         }else{
-            $("#inputPiso2").css('display','none');
             $("#filas2").val("");
-            $("#numeroInicial2").val("");
+            $("#inputPiso2").css('visibility','collapse');
         }
     });
-
     $('#frmbus #btnGenerar').on("click",function(e){
         e.preventDefault();
-        //PISO 1
-        var filas = $("#filas").val();    
-        var columnas = $('#columnas option').filter(':selected').val();
-        var numeroInicial = $("#numeroInicial").val();
-        if(filas>0 && columnas>0 && numeroInicial>0){
-            generarAsiento(1,filas,columnas,numeroInicial);
-        } 
-        ///PISO 2
-        var filas2 = $("#filas2").val();    
-        var columnas2 = $('#columnas2 option').filter(':selected').val();
-        var numeroInicial2 = $("#numeroInicial2").val();
-        if(filas2>0 && columnas2>0 && numeroInicial2>0){
-            generarAsiento(2,filas2,columnas2,numeroInicial2);
-        }else{
-            $("#piso2 tbody tr").remove();
-        }
+        inicializarAsientos();
+        agregarEventoAsiento();
+               
     });
 
     $('#frmbuseditar #btnGenerar').on("click",function(e){
         e.preventDefault();
-        //PISO 1
-        var filas = $("#filas").val();    
+        inicializarAsientos();
+        agregarEventoAsiento();
+        /*var filas = $("#filas").val();    
         var columnas = $('#columnas option').filter(':selected').val();
-        var numeroInicial = $("#numeroInicial").val();
-        if(filas>0 && columnas>0 && numeroInicial>0){
-            generarAsiento(1,filas,columnas,numeroInicial);
+        if(filas>0 && columnas>0){
+            generarAsiento(1,filas);
         } 
         ///PISO 2
         var filas2 = $("#filas2").val();    
-        var columnas2 = $('#columnas2 option').filter(':selected').val();
-        var numeroInicial2 = $("#numeroInicial2").val();
-        if(filas2>0 && columnas2>0 && numeroInicial2>0){
-            generarAsiento(2,filas2,columnas2,numeroInicial2);
+        if(filas2>0 && columnas>0){
+            generarAsiento(2,filas2);
+        }else{
+            $("#piso2 tbody tr").remove();
+        }*/
+    });
+}
+function agregarEventoAsiento(){    
+    var filas = $("#filas").val();    
+    var filas2 = $("#filas2").val();
+    columnas = $('#columnas option').filter(':selected').val();
+    piso = $('#pisos option').filter(':selected').val();
+    if(piso==2){
+        ///PISO 2                    
+        if(filas2>0  && columnas>0){
+            generarAsiento(2,filas2);
         }else{
             $("#piso2 tbody tr").remove();
         }
-    });
+
+        if(filas>0 && columnas>0){
+            generarAsiento(1,filas);
+        }
+
+    }else{
+        if(filas>0 && columnas>0){
+            generarAsiento(1,filas);
+        }
+    }
+}
+function inicializarAsientos(){
+    numeroInicial = 1;
+    eliminados = {};
+    $("#piso1 tbody").empty();
+    $("#piso2 tbody").empty();
 }
 //GENERAR ASIENTO
-function generarAsiento(piso, filas,columnas,numeroInicial){
+function generarAsiento(piso, filas){
     var asientos = "";
-    var numeroInicialBackup = numeroInicial;
+    //var numeroInicialBackup = numeroInicial;
     $("#piso"+piso+" thead tr th").attr('colspan',columnas+1);
     for(var i=0;i<filas;i++){
         asientos = asientos+"<tr>";
-        for(var j=0;j<columnas;j++){
+        for(var j=0;j<=columnas;j++){
             if(typeof eliminados[""+i+j+numeroInicial] === 'undefined'){
                 var n = "<input name='numero[]' type='hidden' value='"+numeroInicial+"'>";
                 var f = "<input name='fila[]' type='hidden' value='"+i+"'>";
@@ -420,6 +434,7 @@ function generarAsiento(piso, filas,columnas,numeroInicial){
                         
             if(j==1){
                 asientos = asientos+"<td class='pasillo'></td>"
+                j++;
             }            
         }
         asientos = asientos+"</tr>";
@@ -429,7 +444,8 @@ function generarAsiento(piso, filas,columnas,numeroInicial){
     $("#piso"+piso+" tbody tr td.asiento").dblclick(function(){
         var identificador = $(this).attr("attr-id");
         eliminados[""+identificador] = identificador;
-        generarAsiento(piso,filas,columnas,numeroInicialBackup);
+        numeroInicial = 1
+        agregarEventoAsiento();
     });
 
 }

@@ -968,7 +968,8 @@ abstract class REST_Controller extends CI_Controller {
                 case 1://SERVICIOS HABILITADOS PARA EL PUBLICO
                     $resp = ($class === "user" && $method === "index" && $method_type === "post") ||
                     $resp = ($class === "departamentoServices" && $method === "listar" && $method_type === "get") ||
-                    $resp = ($class === "viajeServices" && $method === "listar" && $method_type === "post");
+                    $resp = ($class === "viajeServices" && $method === "listar" && $method_type === "post") ||
+                    $resp = ($class === "viajeServices" && $method === "obtenerAsientos" && $method_type === "get");
                 	break;
                 case 2://SERVICIOS HABILITADOS PARA PASAJEROS REGISTRADOS
                 	$resp = ($class === "viajeapi" && $method === "index" && $method_type === "post");                	
