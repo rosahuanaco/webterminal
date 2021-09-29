@@ -6,7 +6,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Usuarios</h1>
+            <h1 class="titulo">Usuarios</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -25,7 +25,7 @@
           <div class="col-12">
             <div class="card">
               <div class="card-header">                
-                <h3 class="card-title">FORMULARIO DE NUEVO USUARIO</h3>
+                <h3 class="sub">Formulario de nuevo usuario</h3>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
@@ -36,14 +36,14 @@
                   <div class="row mb-3">
                              <label for="email" class="col-sm-2 col-form-label">Email</label>
                             <div class="col-sm-10">
-                                <input name="email" type="email" class="form-control" id="email">
+                                <input name="email" type="email" class="form-control" id="email" data-bind="value:Email" required>
                              </div>
                    </div>
 
                   <div class="row mb-3">
                            <label for="password" class="col-sm-2 col-form-label">Password</label>
                           <div class="col-sm-10">
-                               <input name="password" type="password" class="form-control" id="password">
+                               <input name="password" type="password" class="form-control" id="password" data-bind="value:Contraseña" required>
                           </div>
                   </div>
 

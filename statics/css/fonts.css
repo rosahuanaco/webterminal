@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gemunu+Libre&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap');
+
+/*.subtitulo{
+    font-family: 'Oswald', sans-serif,;
+    font-size: 15px;*/
+
+.titulo{
+    font-family: 'Bebas Neue', cursive;
+    font-size: 18px;
+}
+.sub{
+    font-family: 'Gemunu Libre', sans-serif;
+    font-size: 12xp;
+}
+.texto{
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 14xp;
+}

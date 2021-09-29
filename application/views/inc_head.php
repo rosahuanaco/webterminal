@@ -33,6 +33,7 @@ defined('SYSDIR') OR exit('No direct script access allowed');
   <link rel="stylesheet" href="<?=base_url()?>statics/css/bootstrap/bootstrap-datepicker.css.map">
   <link rel="stylesheet" href="<?=base_url()?>statics/css/style.css">
   <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+  <link rel="stylesheet" href="<?=base_url()?>statics/css/fonts.css">
 </head>
 <body class="hold-transition sidebar-mini">
   <input type="hidden" value="<?=base_url()?>" id="base_url">
