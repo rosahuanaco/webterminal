@@ -6,7 +6,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Lista de Viajes</h1>
+            <h1 class="titulo">Lista de Viajes</h1>
 
           </div>
           <div class="col-sm-6">
@@ -26,7 +26,7 @@
           <div class="col-12">
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">Listado</h3>
+                <h3 class="sub">Listado</h3>
 
               </div>
               <!-- /.card-header -->
@@ -34,7 +34,7 @@
                 <?php if(is_array($viajes) && count($viajes)>0):?>
                 <table id="example2" class="table table-bordered table-hover">
                   <thead>
-                  <tr>
+                  <tr class="sub">
                   <th>Id Viaje</th>
                   <th>Bus</th>
                     <th>Origen</th>
@@ -45,7 +45,7 @@
                     <th>Accion</th>
                   </tr>
                   </thead>
-                  <tbody>                                                        
+                  <tbody class="texto">                                                        
                         <?php foreach($viajes as $viaje):?> 
                           <tr class="<?=$viaje->estado=='Inactivo'?'inactivo':''?>"> 
                             <td><?=$viaje->id?></td>
@@ -66,7 +66,7 @@
                     <?php endforeach;?>                
                   </tbody>
                   <tfoot>
-                  <tr>
+                  <tr class="sub">
                   <th>Id Viaje</th>
                   <th>Bus</th>
                     <th>Origen</th>

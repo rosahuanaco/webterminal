@@ -6,7 +6,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Usuarios</h1>
+            <h1 class="titulo">Usuarios</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -25,7 +25,7 @@
           <div class="col-12">
             <div class="card">
               <div class="card-header">                
-                <h3 class="card-title">FORMULARIO DE USUARIO</h3>
+                <h3 class="sub">Editar Formulario de Usuario</h3>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
@@ -104,7 +104,7 @@
                   
                   <div class="form-group row">
                     <div class="col-sm-10">
-                      <button type="submit" class="btn btn-primary">Registrar Usuario</button>
+                      <button type="submit" class="btn btn-primary" class="texto">Registrar Usuario</button>
                     </div>
                   </div>
                 </form>

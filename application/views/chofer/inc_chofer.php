@@ -6,7 +6,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Lista de Chofer</h1>
+            <h1 class="titulo">Lista de Chofer</h1>
 
           </div>
       
@@ -21,7 +21,7 @@
           <div class="col-12">
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">Listado</h3>
+                <h3 class="sub">Listado</h3>
 
               </div>
               <!-- /.card-header -->
@@ -29,7 +29,7 @@
                 <?php if(is_array($lista) && count($lista)>0):?>
                 <table id="example2" class="table table-bordered table-hover">
                   <thead>
-                  <tr>
+                  <tr class="sub">
                   <th>Id</th>
                   <th>Nombre Completo</th>
                     <th>CI</th>
@@ -37,7 +37,7 @@
                     <th>Telefono</th>
                   </tr>
                   </thead>
-                  <tbody>
+                  <tbody class="texto">
                     <tr>     
                                 
                         <?php foreach($lista as $chofer):?> 
@@ -55,7 +55,7 @@
                     <?php endforeach;?>                
                   </tbody>
                   <tfoot>
-                  <tr>
+                  <tr class="sub">
                     <th>Id</th>
                     <th>Nombre Completo</th>
                     <th>CI</th>

@@ -6,7 +6,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>BUSES</h1>
+            <h1 class="titulo">BUSES</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -25,7 +25,7 @@
           <div class="col-12">
             <div class="card">
               <div class="card-header">                
-                <h3 class="card-title">FORMULARIO DE REGISTRO DE BUS</h3>
+                <h3 class="sub">Formulario de Nuevo Bus</h3>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
@@ -62,7 +62,7 @@
                                           
                     </div>
                     <div class="col-sm-10">                       
-                        <h3 class="card-title">Para eliminar asientos solamente debe dar doble clik en la misma.</h3>
+                        <h3 class="texto">Para eliminar asientos solamente debe dar doble clik en la misma.</h3>
                     </div>
                   </div>
 

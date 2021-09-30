@@ -5,7 +5,7 @@
     <!-- Brand Logo -->
     <a href="<?=base_url()?>adminlte/index3.html" class="brand-link">
       <img src="<?=base_url()?>statics/img/logo.png" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light">SISTEMA DE PASAJES</span>      
+      <span class="titulo">SISTEMA DE PASAJES</span>      
     </a>
 
         <?php
@@ -36,7 +36,7 @@
                <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
-              <p>
+              <p class="sub">
                 Usuarios
                 <i class="right fas fa-angle-left"></i>
               </p>
@@ -45,7 +45,7 @@
               <li class="nav-item">
                 <a href="<?=site_url('usuario/')?>" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Lista de Usuarios</p>
+                  <p class="sub">Lista de Usuarios</p>
                 </a>
               </li>
             </ul>
@@ -53,7 +53,7 @@
               <li class="nav-item">
                 <a href="<?=site_url('usuario/crear')?>" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Crear  Usuarios</p>
+                  <p class="sub">Crear  Usuarios</p>
                 </a>
               </li>
             </ul>
@@ -62,7 +62,7 @@
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
-              <p>
+              <p class="sub">
                 Publicaciones de Viajes
                 <i class="right fas fa-angle-left"></i>
               </p>
@@ -71,13 +71,13 @@
               <li class="nav-item">
                 <a href="<?=site_url('viaje')?>" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Publicaciones de Viajes</p>
+                  <p class="sub">Publicaciones de Viajes</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="<?=site_url('viaje/crear')?>" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Crear nuevo Viaje</p>
+                  <p class="sub">Crear nuevo Viaje</p>
                 </a>
               </li>
             </ul>            
@@ -86,7 +86,7 @@
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
-              <p>
+              <p class="sub">
                 Chofer
                 <i class="right fas fa-angle-left"></i>
               </p>
@@ -95,13 +95,13 @@
               <li class="nav-item">
                 <a href="<?=site_url('chofer')?>" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Lista de chofer</p>
+                  <p class="sub">Lista de chofer</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="<?=site_url('chofer/crear')?>" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Crear nuevo Chofer</p>
+                  <p class="sub">Crear nuevo Chofer</p>
                 </a>
               </li>
             </ul>            
@@ -110,7 +110,7 @@
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
-              <p>
+              <p class="sub">
                 Buses
                 <i class="right fas fa-angle-left"></i>
               </p>
@@ -119,13 +119,13 @@
               <li class="nav-item">
                 <a href="<?=site_url('bus')?>" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Lista de Buses</p>
+                  <p class="sub">Lista de Buses</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="<?=site_url('bus/crear')?>" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Crear nuevo Bus</p>
+                  <p class="sub">Crear nuevo Bus</p>
                 </a>
               </li>
             </ul>
