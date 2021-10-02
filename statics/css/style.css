@@ -39,3 +39,9 @@ table#piso1 tbody, table#piso2 tbody{
 .inactivo{
     background-color: #ccc;
 }
+.fa-tachometer-alt{
+    font-family: none;
+}
+.fa-tachometer-alt.usuario::before{
+    background-image: url("/webterminal/statics/img/usua.png");
+}

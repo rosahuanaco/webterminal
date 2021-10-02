@@ -35,7 +35,7 @@
 
                <li class="nav-item">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <i class="material-icons">portrait</i>
               <p class="sub">
                 Usuarios
                 <i class="right fas fa-angle-left"></i>
@@ -61,7 +61,7 @@
 
           <li class="nav-item">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
+            <i class="material-icons">filter_hdr</i>
               <p class="sub">
                 Publicaciones de Viajes
                 <i class="right fas fa-angle-left"></i>
@@ -85,7 +85,7 @@
 
           <li class="nav-item">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
+            <i class="material-icons">airline_seat_recline_normal</i>
               <p class="sub">
                 Chofer
                 <i class="right fas fa-angle-left"></i>
@@ -109,7 +109,7 @@
           
           <li class="nav-item">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
+            <i class="material-icons">directions_bus</i>
               <p class="sub">
                 Buses
                 <i class="right fas fa-angle-left"></i>

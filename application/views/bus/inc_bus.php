@@ -1,5 +1,5 @@
 <!-- Content Wrapper. Contains page content -->
-<div class="content-wrapper" style="background-image: linear-gradient(#ffffff, #114A7F);">
+<div class="content-wrapper" style="background-image:url('/webterminal/statics/img/fondo.jpg');">
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <div class="container-fluid">
