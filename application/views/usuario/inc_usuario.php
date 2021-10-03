@@ -21,7 +21,7 @@
           <div class="col-12">
             <div class="card">
               <div class="card-header">
-                <h3 class="sub">Listado</h3>
+                <h3 class="sub">Listado de Usuario</h3>
 
               </div>
               <!-- /.card-header -->

@@ -24,7 +24,7 @@
           <div class="col-12">
             <div class="card">
               <div class="card-header">
-                <h3 class="sub">Lista: </h3>
+                <h3 class="sub">Listado de Buses </h3>
               </div>
               <?php if(is_array($buses) && count($buses)>0):?>
               <!-- /.card-header -->
