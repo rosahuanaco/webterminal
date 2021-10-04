@@ -136,11 +136,7 @@
                     </div>
                   </div>
 
-                  <div class="form-group row">
-                    <div class="col-sm-12 text-right">
-                      <button type="submit" class="btn btn-primary">Registrar</button>
-                    </div>
-                  </div>
+
                 </form>
               </div>
               <!-- /.card-body -->
