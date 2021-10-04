@@ -105,6 +105,12 @@
                   <div class="form-group row">
                     <div class="col-sm-10">
                       <button type="submit" class="btn btn-primary" class="texto">Registrar Usuario</button>
+
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <div class="col-sm-10">
+                      <button type="submit" class="btn btn-primary" class="texto">Cancelar</button>
                     </div>
                   </div>
                 </form>
