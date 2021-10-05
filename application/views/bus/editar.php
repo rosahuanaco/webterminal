@@ -71,25 +71,25 @@
                   </div>
 
                   <div class="form-group row">
-                    <div class="col-sm-2">
+                    <div class="col-sm-0">
                                           
                     </div>
-                    <div class="col-sm-2">
+                    <div class="col-sm-3">
                       <label for="pisos">Cantidad pisos</label>
                       <select class="form-control" id="pisos" name="pisos">
                               <option value="1" <?=$bus->piso==1?'selected':''?> >1</option>
                               <option value="2" <?=$bus->piso==2?'selected':''?> >2</option>
                         </select>
                         <br>
-                        <h5 for="filas">PISO 1</h5>
+                        <h5 for="filas">Planta Baja</h5>
                         <table class="table table-responsive">
                               <tbody>
                                   <tr>
-                                      <td><label for="filas">Filas Piso1</label></td>
+                                      <td><label for="filas">Filas Planta Baja</label></td>
                                       <td><input name="filas" type="number" value="<?=$bus->filas?>" class="form-control" placeholder="Filas" id="filas" min="0" data-bind="value:filas" required></td>
                                   </tr>
                                   <tr id="inputPiso2" <?=$bus->piso==2?'':'style="visibility: collapse;"'?>>
-                                      <td><label for="filas2">Filas Piso2</label></td>
+                                      <td><label for="filas2">Filas Planta Alta</label></td>
                                       <td><input name="filas2" type="number"  value="<?=$bus->filas2?>" class="form-control" placeholder="Filas" id="filas2" min="0" data-bind="value:filas" required></td>
                                   </tr>
                                   <tr>
@@ -104,14 +104,14 @@
                               </tbody>
                         </table>                      
                         <div class="form-group row">
-                          <button id="btnGenerar" class="btn btn-primary">Generar</button>
+                          <button id="btnGenerar" class="btn btn-primary">Generar asientos</button>
                         </div>
                     </div>
                     <div class="col-sm-4">                        
-                        <table class="table table-responsive" id="piso1">
+                        <table class="table table-responsive" id="Planta baja">
                             <thead>
                                 <tr>
-                                    <th colspan="4">PISO 1</th>
+                                    <th colspan="4">Planta baja</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -141,10 +141,10 @@
                         </table>
                       </div>
                       <div class="col-sm-4">
-                        <table class="table table-responsive" id="piso2">
+                        <table class="table table-responsive" id="Planta Alta">
                             <thead>
                                 <tr>
-                                    <th colspan="4">PISO 2</th>
+                                    <th colspan="4">Planta Alta</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -178,13 +178,13 @@
                   
                   <div class="form-group row">
                     <div class="col-sm-12 text-right">
-                      <button type="submit" class="btn btn-primary">Registrar</button>
+                      <button type="submit" class="btn btn-primary">Registrar bus</button>
                     </div>
                   </div>
 
                   <div class="form-group row">
                     <div class="col-sm-12 text-right">
-                      <button type="submit" class="btn btn-primary">Cancelar</button>
+                      <button type="submit" class="btn btn-primary">Cancelar bus</button>
                     </div>
                   </div>
                 </form>

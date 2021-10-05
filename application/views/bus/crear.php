@@ -67,11 +67,11 @@
                   </div>
 
                   <div class="form-group row">
-                    <div class="col-sm-2">
+                    <div class="col-sm-0">
                                           
                     </div>
-                    <div class="col-sm-2">
-                    <h5 for="filas">Datos asiento</h5>
+                    <div class="col-sm-3">
+                    <h5 for="filas" class="sub">Datos asiento</h5>
                       <label for="pisos">Cantidad pisos</label>
                       <select class="form-control" id="pisos" name="pisos">
                               <option value="1">1</option>
@@ -81,11 +81,11 @@
                         <table class="table table-responsive">
                               <tbody>
                                   <tr>
-                                      <td><label for="filas">Filas Piso 1</label></td>
+                                      <td><label for="filas">Filas Planta Baja</label></td>
                                       <td><input name="filas" type="number" class="form-control" placeholder="Filas" id="filas" min="0" data-bind="value:filas" required></td>
                                   </tr>
                                   <tr id="inputPiso2" style="visibility: collapse;">
-                                      <td><label for="filas2">Filas Piso 2</label></td>
+                                      <td><label for="filas2">Filas Planta alta</label></td>
                                       <td><input name="filas2" type="number" class="form-control" placeholder="Filas" id="filas2" min="0" data-bind="value:filas" required></td>
                                   </tr>
                                   <tr>
@@ -102,14 +102,14 @@
                         
                                                                                             
                         <div class="form-group row">
-                          <button id="btnGenerar" class="btn btn-primary">Generar</button>
+                          <button id="btnGenerar" class="btn btn-primary">Generar Asiento</button>
                         </div>
                     </div>
-                    <div class="col-sm-4">
-                        <table class="table table-responsive" id="piso1">
+                    <div class="col-sm-5">
+                        <table class="table table-responsive" id="Planta Baja">
                             <thead>
                                 <tr>
-                                    <th colspan="3">PISO 1</th>
+                                    <th colspan="3">Planta Baja</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -117,10 +117,10 @@
                         </table>
                       </div>
                       <div class="col-sm-4">
-                        <table class="table table-responsive" id="piso2">
+                        <table class="table table-responsive" id="Planta alta">
                             <thead>
                                 <tr>
-                                    <th colspan="3">PISO 2</th>
+                                    <th colspan="3">Planta alta</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -132,7 +132,7 @@
                   
                   <div class="form-group row">
                     <div class="col-sm-12 text-right">
-                      <button type="submit" class="btn btn-primary">Registrar</button>
+                      <button type="submit" class="btn btn-primary">Registrar nuevo</button>
                     </div>
                   </div>
 
