@@ -105,7 +105,7 @@ class ViajeServices extends REST_Controller
             if(is_array($reservados) && isset($reservados[$asiento->id])){
                 $asiento->reserva_id = $reservados[$asiento->id]->reserva_id;
                 $asiento->pasajero = $reservados[$asiento->id]->pasajero;
-                $asiento->nombre_pasajero = $reservados[$asiento->id]->nombre_pasajero;
+                $asiento->nombre = $reservados[$asiento->id]->nombre;
                 $asiento->ci = $reservados[$asiento->id]->ci;
             }else{
                 $asiento->reserva_id = NULL;

@@ -71,7 +71,7 @@ class Viaje_Model extends Base_Model
         return false;
     }
     public function obtenerAsientosReservados($viaje_id){
-        $this->db->select("vd.asiento,ve.id reserva_id,ve.pasajero,vd.nombre_pasajero,vd.ci");
+        $this->db->select("vd.asiento,ve.id reserva_id,ve.pasajero,vd.nombre,vd.ci");
         $this->db->from("viaje v");
         $this->db->join("venta ve","ve.viaje=v.id");
         $this->db->join("venta_detalle vd","vd.venta=ve.id");

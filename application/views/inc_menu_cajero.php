@@ -1,7 +1,7 @@
   <!-- Navbar -->
   
   <!-- Main Sidebar Container -->
-  <aside class="main-sidebar sidebar-dark-primary elevation-4" >
+  <aside class="main-sidebar sidebar-dark-primary elevation-4" style="background-color:#114A7F;">
     <!-- Brand Logo -->
     <a href="<?=base_url()?>adminlte/index3.html" class="brand-link">
       <img src="<?=base_url()?>statics/img/logo.png" class="brand-image img-circle elevation-3" style="opacity: .8">
@@ -39,21 +39,21 @@
             <a href="#" class="nav-link">
             <i class="material-icons">filter_hdr</i>
               <p class="sub">
-                Publicaciones de Viajes
+                Reservas
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="<?=site_url('viaje')?>" class="nav-link">
+                <a href="<?=site_url('venta')?>" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p class="sub">Publicaciones de Viajes</p>
+                  <p class="sub">Lista de reservas</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="<?=site_url('viaje/crear')?>" class="nav-link">
+                <a href="<?=site_url('venta/crear')?>" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p class="sub">Crear nuevo Viaje</p>
+                  <p class="sub">Lista ventas</p>
                 </a>
               </li>
             </ul>            
