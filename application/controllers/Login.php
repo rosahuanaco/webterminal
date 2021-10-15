@@ -56,7 +56,7 @@ class Login extends CI_Controller {
                     break;
                 case "Cajero":
                     $this->session->set_userdata('menu',"inc_menu_cajero");
-                    $url = "viaje/";
+                    $url = "venta/";
                     break;
                 default:
                     break;

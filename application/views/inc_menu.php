@@ -1,12 +1,14 @@
   <!-- Navbar -->
   
   <!-- Main Sidebar Container -->
-  <aside class="main-sidebar sidebar-dark-primary elevation-4" >
+    <aside class="main-sidebar sidebar-dark-primary elevation-4" style="background-color:#114A7F;">
     <!-- Brand Logo -->
     <a href="<?=base_url()?>adminlte/index3.html" class="brand-link">
-      <img src="<?=base_url()?>statics/img/logo.png" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="titulo">SISTEMA DE PASAJES</span>      
+          <img src="<?=base_url()?>statics/img/logo.png" class="brand-image img-circle elevation-3" style="opacity: .8">
+      <span class="titulo">SISTEMA DE PASAJES</span> 
+       
     </a>
+    
 
         <?php
         echo form_open_multipart('login/logout');

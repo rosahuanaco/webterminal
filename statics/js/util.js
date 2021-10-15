@@ -1,10 +1,18 @@
 $( document ).ready(function() {
 
+    //Filtrar Reserva
+    $("#myInput").on("keyup", function() {
+        var value = $(this).val().toLowerCase();
+        $("#reservas tr").filter(function() {
+          $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        });
+      });
+
     $(document).on("click", ".deleteUsuario", function(){
         if(confirm("Estas seguro de eliminar el Usuario seleccionado?")){
             eliminarUsuario($(this).attr("data-id"),this);
-        }            
-    });       
+        }
+    });     
 
     
 
