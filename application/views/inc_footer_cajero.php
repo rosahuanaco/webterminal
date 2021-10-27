@@ -33,7 +33,7 @@
 <script src="<?=base_url()?>adminlte/dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
-<script src="<?=base_url()?>statics/js/util.js"></script>
+<script src="<?=base_url()?>statics/js/utilcajero.js"></script>
 <!-- Page specific script -->
 <script>
   $(function () {

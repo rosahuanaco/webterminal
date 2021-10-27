@@ -90,7 +90,7 @@
                                   </tr>
                                   <tr id="inputPiso2" <?=$bus->piso==2?'':'style="visibility: collapse;"'?>>
                                       <td><label for="filas2">Filas Planta Alta</label></td>
-                                      <td><input name="filas2" type="number"  value="<?=$bus->filas2?>" class="form-control" placeholder="Filas" id="filas2" min="0" data-bind="value:filas" required></td>
+                                      <td><input name="filas2" type="number"  value="<?=$bus->filas2?>" class="form-control" placeholder="Filas" id="filas2" min="0" data-bind="value:filas"></td>
                                   </tr>
                                   <tr>
                                       <td><label for="columnas">Columnas</label></td>
@@ -108,7 +108,7 @@
                         </div>
                     </div>
                     <div class="col-sm-4">                        
-                        <table class="table table-responsive" id="Planta baja">
+                        <table class="table table-responsive" id="piso1">
                             <thead>
                                 <tr>
                                     <th colspan="4">Planta baja</th>
@@ -141,7 +141,7 @@
                         </table>
                       </div>
                       <div class="col-sm-4">
-                        <table class="table table-responsive" id="Planta Alta">
+                        <table class="table table-responsive" id="piso2">
                             <thead>
                                 <tr>
                                     <th colspan="4">Planta Alta</th>
@@ -179,12 +179,6 @@
                   <div class="form-group row">
                     <div class="col-sm-12 text-right">
                       <button type="submit" class="btn btn-primary">Registrar bus</button>
-                    </div>
-                  </div>
-
-                  <div class="form-group row">
-                    <div class="col-sm-12 text-right">
-                      <button type="submit" class="btn btn-primary">Cancelar bus</button>
                     </div>
                   </div>
                 </form>

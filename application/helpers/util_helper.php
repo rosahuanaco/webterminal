@@ -15,6 +15,15 @@ function convertDateTime($date, $start = true) {
 	}
 	return $date;
 }
+
+function convertDate($date) {
+	$date = explode ( " ", $date );
+	if (is_array ( $date ) && count ( $date ) > 0) {
+		return implode ( "-", array_reverse ( explode ( "/", $date [0] ) ) );
+	}
+	return date ( "Y-m-d" );
+}
+
 function convertDateTimeRev($date, $start = true) {
 	$date = explode ( " ", $date );
 	if (is_array ( $date ) && count ( $date ) > 0) {
@@ -29,6 +38,27 @@ function convertDateTimeRev($date, $start = true) {
 		$date = date ( "Y/m/d " . ($start ? "00:00:00" : "23:59:59") );
 	}
 	return $date;
+}
+
+function extractDateTime($date) {
+	$date = explode ( " ", str_replace ( "/\s*/", " ", $date ) );
+	if (is_array ( $date ) && count ( $date ) > 0) {
+		if (count ( $date ) > 1) {
+			return array (
+					$date [0],
+					$date [1] 
+			);
+		} else {
+			return array (
+					$date [0],
+					false 
+			);
+		}
+	}
+	return array (
+			false,
+			false 
+	);
 }
 
 function indexar($datos=array()){

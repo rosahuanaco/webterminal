@@ -131,8 +131,13 @@
                 </a>
               </li>
             </ul>
+          </li>
+          <li class="nav-item">
+            <a href="<?=site_url('venta/reportes')?>" class="nav-link">
+              <i class="far fa-circle nav-icon"></i>
+              <p class="sub">Reportes</p>
+            </a>
           </li> 
-
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

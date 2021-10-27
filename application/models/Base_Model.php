@@ -18,7 +18,9 @@ class Base_Model extends CI_Model {
 	public function guardarMuchos($tabla, $datos){
 	    if ($this->db->insert_batch($tabla, $datos )) {
 	        return $this->db->insert_id ();
-	    }
+	    }else{
+			throw new MySQLException($this->db->error_reporting);
+		}
 	    return false;
 	}
 

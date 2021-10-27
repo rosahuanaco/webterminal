@@ -34,14 +34,16 @@
                     <?php foreach($reservas as $reserva):?> 
                       <tr>          
                         <td><?=$reserva->id?></td>   
-                        <td><?=$reserva->pasajero?></td>
-                        <td><?=$reserva->nombre?></td>
+                        <td><?=$reserva->nombre." ".$reserva->apellido_paterno." ".$reserva->apellido_materno?></td>
+                        <td><?=$reserva->razon_social?></td>
                         <td><?=$reserva->nit_ci?></td>
                         <td><?=$reserva->viaje?></td>
-                        <td><?=$reserva->fecha?></td>
+                        <td><?=convertDateTimeRev($reserva->fecha_reserva)?></td>
                         <td><?=$reserva->total?></td>
                         <td> 
-                            <a href="#">Confirmar</a>
+                        <button type="button" href="<?=base_url()?>venta/detalle/<?=$reserva->id?>" class="btn btn-primary confirmModal" data-toggle="modal" data-target="#confirmarModal">
+                          Confirmar
+                        </button>                        
                         </td>
                       </tr>
                     <?php endforeach;?>                
@@ -63,6 +65,26 @@
               <?php else: ?>
               <div>No existe reservas.</div>
               <?php endif; ?>
+
+              <!-- Modal -->
+              <div class="modal fade" id="confirmarModal" tabindex="-1" role="dialog" aria-labelledby="confirmModal" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="confirmModal">DATOS DE LA FACTURA</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                      <button type="button" class="btn btn-primary" id="btnVender">Vender</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
               <!-- /.card-body -->
             </div>
             

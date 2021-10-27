@@ -30,7 +30,7 @@ defined('SYSDIR') OR exit('No direct script access allowed');
 
   <link rel="stylesheet" href="<?=base_url()?>adminlte/dist/css/adminlte.min.css">  
   <link rel="stylesheet" href="<?=base_url()?>statics/css/bootstrap/bootstrap-datepicker.css">
-  <link rel="stylesheet" href="<?=base_url()?>statics/css/bootstrap/bootstrap-datepicker.css.map">
+  <link rel="stylesheet" href="<?=base_url()?>statics/css/bootstrap/bootstrap-datetimepicker.min.css">
   <link rel="stylesheet" href="<?=base_url()?>statics/css/style.css">
   <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
   <link rel="stylesheet" href="<?=base_url()?>statics/css/fonts.css">

@@ -32,47 +32,40 @@ class VentaServices extends REST_Controller
         $this->Venta->db->trans_begin();
         try {
             $venta = $this->post("venta");
-            $venta_detalle = $this->post("venta_detalle");        
-            $venta["pasajero"] = $this->user->id;
-            $venta["estado"] = "Reservada";
-            $venta["fecha"] = date("Y-m-d H:i:s");
-            $venta["nit_ci"] = $venta["nit"];
-            $venta["total"] = 80;
-            unset($venta["nit"]);            
-            $ventaId = $this->Venta->guardar("venta",$venta);
-            if($ventaId){
-                $datos = array();
-                $isValid = true;
-                $response["message"] = "Los numeros de asientos ya se encuentran reservado ";
-                foreach($venta_detalle as $vd){
-                    $a = $this->Venta->obtenerAsiento($venta['viaje'],$vd['asiento']);
-                    if(is_object($a)){                        
-                        $isValid = $isValid && false;
-                        $response["message"] = $response["message"]." ".$a->numero.",";
-                    }else{
+            $viaje = $this->Venta->obtener("viaje",array("id"=>$venta["viaje"]));
+            $venta_detalle = $this->post("venta_detalle");
+            if(is_object($viaje) && is_array($venta_detalle)){                
+                $venta["pasajero"] = $this->user->id;
+                $venta["estado"] = "Reservada";
+                $venta["fecha_reserva"] = date("Y-m-d H:i:s");
+                $venta["total"] = count($venta_detalle)*$viaje->precio;
+                $ventaId = $this->Venta->guardar("venta",$venta);
+                if($ventaId){
+                    $datos = array();
+                    $isValid = true;
+                    $response["message"] = "Los numeros de asientos ya se encuentran reservado ";
+                    foreach($venta_detalle as $vd){
                         $isValid = $isValid && true;
                         $vd["venta"]=$ventaId;
-                        $vd["apellidos"]=$vd["apellido"];
-                        unset($vd["apellido"]);
+                        $vd["precio"]=$viaje->precio;
                         $datos[] = $vd;
                     }
-                }
-                if($isValid){
-                    if($this->Venta->guardarMuchos("venta_detalle",$datos)){
-                        $this->Sale->db->trans_commit();
-                        $response["response"] = "Se registro con exito";
-                        $response["status"] = true;
-                        $response["message"] = "Se registro con exito";
+                    if($isValid){
+                        if($this->Venta->guardarMuchos("venta_detalle",$datos)){
+                            $this->Venta->db->trans_commit();
+                            $response["response"] = $ventaId;
+                            $response["status"] = true;
+                            $response["message"] = "Se registro con exito";
+                        }else{
+                            $this->Venta->db->trans_rollback();
+                        }
                     }else{
-                        $this->Sale->db->trans_rollback();
-                    }
-                }else{
-                    $this->Sale->db->trans_rollback();                    
-                }
-                
-            }    
+                        $this->Venta->db->trans_rollback();                    
+                    }                    
+                }    
+            }
         } catch (Exception $e) {
-            $this->Sale->db->trans_rollback();
+            $this->Venta->db->trans_rollback();
         }
         $this->response($response, REST_Controller::HTTP_OK);
     }

@@ -61,7 +61,7 @@ $( document ).ready(function() {
     agregarCrudChofer();
     agregarCrudBus();
     agregarCrudViajes();
-
+    reportes();
     
 });
 
@@ -456,4 +456,33 @@ function generarAsiento(piso, filas){
         agregarEventoAsiento();
     });
 
+}
+
+function reportes(){
+    if($("#frmBuscar input[name='fecha_inicio']")){
+        $("#frmBuscar input[name='fecha_inicio']").datepicker({
+            dateFormat : "dd/mm/yy"
+        });
+        $("#frmBuscar input[name='fecha_inicio']").datetimepicker({format: 'DD/MM/YYYY HH:mm'});
+    
+        $("#frmBuscar input[name='fecha_fin']").datepicker({
+        dateFormat : "dd/mm/yy"
+        });
+        $("#frmBuscar input[name='fecha_fin']").datetimepicker({format: 'DD/MM/YYYY 23:mm'});
+    
+        $("#frmReportes").submit(function(e) {   
+            e.preventDefault(); 
+            var form = $(this);
+            var url = form.attr('action');        
+            $.ajax({
+                type: "POST",
+                url: url,
+                data: form.serialize(),
+                success: function(o)
+                {                    
+                    $("#reporte_detalle").html(o); 
+                }
+                });  
+        });
+    }    
 }

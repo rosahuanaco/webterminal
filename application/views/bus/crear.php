@@ -106,7 +106,7 @@
                         </div>
                     </div>
                     <div class="col-sm-5">
-                        <table class="table table-responsive" id="Planta Baja">
+                        <table class="table table-responsive" id="piso1">
                             <thead>
                                 <tr>
                                     <th colspan="3">Planta Baja</th>
@@ -117,7 +117,7 @@
                         </table>
                       </div>
                       <div class="col-sm-4">
-                        <table class="table table-responsive" id="Planta alta">
+                        <table class="table table-responsive" id="piso2">
                             <thead>
                                 <tr>
                                     <th colspan="3">Planta alta</th>
