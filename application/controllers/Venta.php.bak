@@ -118,12 +118,46 @@ class Venta extends Controller {
 		$cajeros = $this->Venta->obtener("usuario",array("estado"=>"Activo","privilegio"=>6),false);
 		$departamentos = $this->Venta->obtener("departamento",false,false);
 		$buses = $this->Venta->obtener("bus",array("estado"=>"Activo"),false);
-		$viajes = $this->Venta->obtenerViajes();
-		$datos = array("cajeros"=>$cajeros,"departamentos"=>$departamentos,"buses"=>$buses,"viajes"=>$viajes);
+		$datos = array("cajeros"=>$cajeros,"departamentos"=>$departamentos,"buses"=>$buses);
 		$this->load->view('inc_head');
 		$this->load->view($this->session->userdata('menu'));
 		$this->load->view('venta/reportes',$datos);
 		$this->load->view('inc_footer');		
+	}
+
+	public function reporte_detalle(){
+		list ( $fecha_inicio, $tiempo_inicio ) = extractDateTime ( str_replace ( "-", "/", $this->input->post ( "fecha_inicio" ) ) );
+		list ( $fecha_fin, $tiempo_fin ) = extractDateTime ( str_replace ( "-", "/", $this->input->post ( "fecha_fin" ) ) );
+		$where = "";
+		if (! $tiempo_inicio || ! $tiempo_fin) {
+			$fecha_inicio = convertDateTime ( str_replace ( "-", "/", $this->input->post ( "fecha_inicio" ) ) );
+			$fecha_fin = convertDateTime ( str_replace ( "-", "/", $this->input->post ( "fecha_fin" ) ), false );
+			$where = "v.fecha between '$fecha_inicio' and '$fecha_fin'";
+		} else {
+			$fecha_inicio = convertDate ( str_replace ( "-", "/", $this->input->post ( "fecha_inicio" ) ) );
+			$fecha_fin = convertDate ( str_replace ( "-", "/", $this->input->post ( "fecha_fin" ) ) );
+			$where = "date(v.fecha) between '$fecha_inicio' and '$fecha_fin' and time(v.fecha) between '$tiempo_inicio' and '$tiempo_fin'";
+		}
+
+		if($this->input->post("origen") && $this->input->post("destino")){
+			$origen = $this->input->post("origen");
+			$destino = $this->input->post("destino");
+			$where = $where." and vi.origen=$origen and vi.destino=$destino";
+		}
+
+		if($this->input->post("cajero")){
+			$cajero = $this->input->post("cajero");
+			$where = $where." and v.cajero=$cajero";
+		}
+
+		if($this->input->post("bus")){
+			$bus = $this->input->post("bus");
+			$where = $where." and vi.bus=$bus";
+		}
+		$ventas = $this->Venta->reportes($where);
+		$data=array("ventas"=>$ventas);
+
+		$this->load->view("venta/reporte_detalle",$data);
 	}
 
 	public function obtenerVentas(){

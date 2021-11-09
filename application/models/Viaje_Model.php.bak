@@ -82,19 +82,4 @@ class Viaje_Model extends Base_Model
         }
         return false;
     }
-    public function reportes($where){
-
-        $resp = false;
-	    $sql = "select c.nombres,c.apellido_paterno,c.apellido_materno,o.nombre origen, d.nombre destino,b.placa,count(b.id) cantidad";
-        $sql = $sql." from viaje vi inner join bus b on b.id=vi.bus inner join departamento o on o.id=vi.origen inner join departamento d on d.id=vi.destino inner join chofer c on c.id=vi.chofer";
-        $sql = $sql." where ".$where;
-        $sql = $sql." group by b.id,o.id,d.id";
-	    $query = $this->db->query($sql);
-	    $res = is_object($query)?$query->result():false;
-	    if(is_array($res) && count($res) > 0){
-	        $resp = $res;
-	    }
-	    
-	    return $resp;
-    }
 }

@@ -459,20 +459,19 @@ function generarAsiento(piso, filas){
 }
 
 function reportes(){
-    if($("#frmBuscar input[name='fecha_inicio']")){
-        $("#frmBuscar input[name='fecha_inicio']").datepicker({
+    if($("#frmReportes input[name='fecha_inicio']")){
+        $("#frmReportes input[name='fecha_inicio']").datepicker({
             dateFormat : "dd/mm/yy"
         });
-        $("#frmBuscar input[name='fecha_inicio']").datetimepicker({format: 'DD/MM/YYYY HH:mm'});
+        $("#frmReportes input[name='fecha_inicio']").datetimepicker({format: 'DD/MM/YYYY HH:mm'});
     
-        $("#frmBuscar input[name='fecha_fin']").datepicker({
+        $("#frmReportes input[name='fecha_fin']").datepicker({
         dateFormat : "dd/mm/yy"
         });
-        $("#frmBuscar input[name='fecha_fin']").datetimepicker({format: 'DD/MM/YYYY 23:mm'});
+        $("#frmReportes input[name='fecha_fin']").datetimepicker({format: 'DD/MM/YYYY 23:mm'});
     
-        $("#frmReportes").submit(function(e) {   
-            e.preventDefault(); 
-            var form = $(this);
+        $("#btnGeneral").click(function() {   
+            var form = $("#frmReportes");
             var url = form.attr('action');        
             $.ajax({
                 type: "POST",
@@ -484,5 +483,82 @@ function reportes(){
                 }
                 });  
         });
-    }    
+
+        $("#btnImprimir").click(function() {         
+            var attr = obtenerAttrIngresos();   
+            window.open("imprimirReporte/?" + (attr ? attr : ""), "_blank");
+        });
+
+        cambiarFormReporte();
+    }        
+}
+
+function obtenerAttrIngresos(){
+    var form = $("#frmReportes");
+    var tipo = $("#frmReportes input[name='tipo']:checked").val();
+    var resp = "";
+    if(tipo==1){
+        var fecha_inicial = $("#frmReportes input[name='fecha_inicio']").val().replace(/\//g, "-");
+        var fecha_final = $("#frmReportes input[name='fecha_fin']").val().replace(/\//g, "-");
+        resp = "fecha_inicio=" + fecha_inicial + "&fecha_fin=" + fecha_final;
+        resp += '&origen='+$("#frmReportes select[name='origen']").val();
+        resp += '&destino='+$("#frmReportes select[name='destino']").val();
+        resp += '&cajero='+$("#frmReportes select[name='cajero']").val();
+        resp += '&bus='+$("#frmReportes select[name='bus']").val();
+        resp += '&tipo='+$("#frmReportes input[name='tipo']:checked").val();
+    }else if(tipo==2){
+        var fecha_inicial = $("#frmReportes input[name='fecha_inicio']").val().replace(/\//g, "-");
+        var fecha_final = $("#frmReportes input[name='fecha_fin']").val().replace(/\//g, "-");
+        resp = "fecha_inicio=" + fecha_inicial + "&fecha_fin=" + fecha_final;
+        resp += '&tipo='+$("#frmReportes input[name='tipo']:checked").val();
+    }else if(tipo==3){
+        resp += '&viaje='+$("#frmReportes select[name='viaje']").val();
+        resp += '&tipo='+$("#frmReportes input[name='tipo']:checked").val(); 
+    }else{
+        var fecha_inicial = $("#frmReportes input[name='fecha_inicio']").val().replace(/\//g, "-");
+        var fecha_final = $("#frmReportes input[name='fecha_fin']").val().replace(/\//g, "-");
+        resp = "fecha_inicio=" + fecha_inicial + "&fecha_fin=" + fecha_final;
+        resp += '&tipo='+$("#frmReportes input[name='tipo']:checked").val();
+    }
+    
+    return resp;
+}
+
+function cambiarFormReporte(){
+    $("#frmReportes input[name='tipo']").change(function(){
+        var tipo = $("#frmReportes input[name='tipo']:checked").val();
+        if(tipo==1){
+            $("#frmReportes .viaje").hide();
+            $("#frmReportes .bus").show();
+            $("#frmReportes .cajero").show();
+            $("#frmReportes .origen").show();
+            $("#frmReportes .destino").show();
+            $("#frmReportes .fechainicio").show();
+            $("#frmReportes .fechafin").show();
+        }else if(tipo==2) {
+            $("#frmReportes .fechainicio").show();
+            $("#frmReportes .fechafin").show();
+            $("#frmReportes .bus").hide();
+            $("#frmReportes .cajero").hide();
+            $("#frmReportes .origen").hide();
+            $("#frmReportes .destino").hide();
+            $("#frmReportes .viaje").hide();
+        }else if(tipo==3){
+            $("#frmReportes .bus").hide();
+            $("#frmReportes .cajero").hide();
+            $("#frmReportes .origen").hide();
+            $("#frmReportes .destino").hide();
+            $("#frmReportes .fechainicio").hide();
+            $("#frmReportes .fechafin").hide();
+            $("#frmReportes .viaje").show();
+        }else{
+            $("#frmReportes .viaje").hide();
+            $("#frmReportes .bus").hide();
+            $("#frmReportes .cajero").hide();
+            $("#frmReportes .origen").hide();
+            $("#frmReportes .destino").hide();
+            $("#frmReportes .fechainicio").show();
+            $("#frmReportes .fechafin").show();
+        }
+    });
 }

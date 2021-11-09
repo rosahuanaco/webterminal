@@ -88,8 +88,8 @@ class Venta_Model extends Base_Model
     public function reportes($where){
 
         $resp = false;
-	    $sql = "select v.id,u.nombre,u.apellido_paterno,u.apellido_materno,v.nombre as razon_social,v.nit_ci, concat(o.nombre,'-',d.nombre) viaje, v.fecha, v.total,v.estado, b.placa";
-        $sql = $sql." from venta v inner join usuario u on u.id=v.pasajero inner join viaje vi on vi.id=v.viaje inner join departamento o on o.id=vi.origen inner join departamento d on d.id=vi.destino inner join bus b on b.id=vi.bus";
+	    $sql = "select v.id, concat(u.nombre,' ',u.apellido_paterno,' ',u.apellido_materno) pasajero,v.nombre,v.nit_ci, concat(o.nombre,'-',d.nombre) viaje, v.fecha, v.total,v.estado";
+        $sql = $sql." from venta v inner join usuario u on u.id=v.pasajero inner join viaje vi on vi.id=v.viaje inner join departamento o on o.id=vi.origen inner join departamento d on d.id=vi.destino";
         $sql = $sql." where ".$where;
 	    $query = $this->db->query($sql);
 	    $res = is_object($query)?$query->result():false;
@@ -99,54 +99,5 @@ class Venta_Model extends Base_Model
 	    
 	    return $resp;
     }
-
-    public function pasajeros($where)
-    {
-        $resp = false;
-	    $sql = "select vd.*,a.numero asiento";
-        $sql = $sql." FROM venta v inner join venta_detalle vd on vd.venta=v.id inner join asiento a on a.id=vd.asiento ";
-        $sql = $sql." where ".$where." order by a.numero asc";
-	    $query = $this->db->query($sql);
-	    $res = is_object($query)?$query->result():false;
-	    if(is_array($res) && count($res) > 0){
-	        $resp = $res;
-	    }
-	    
-	    return $resp;
-    } 
-    public function obtenerViajes()
-    {
-        $this->db->select("vi.*, b.placa,o.nombre origen, d.nombre destino");
-        $this->db->from("viaje vi");
-        $this->db->join("bus b","b.id=vi.bus");
-        $this->db->join("departamento o","o.id=vi.origen");
-        $this->db->join("departamento d","d.id=vi.destino");
-        $this->db->where('vi.estado',"Activo");
-        $this->db->order_by("vi.fecha_salida","DESC");
-        $query = $this->db->get();
-        if ($query->num_rows() > 0) {
-            return $query->result();
-        }
-        return false;
-    } 
-
-    public function viaje($viaje_id)
-    {
-        $this->db->select("vi.*, b.placa,o.nombre origen, d.nombre destino");
-        $this->db->from("viaje vi");
-        $this->db->join("bus b","b.id=vi.bus");
-        $this->db->join("departamento o","o.id=vi.origen");
-        $this->db->join("departamento d","d.id=vi.destino");
-        $this->db->where('vi.estado',"Activo");
-        $this->db->where('vi.id',$viaje_id);
-        $query = $this->db->get();
-        if ($query->num_rows() > 0) {
-            $res = $query->result();
-			if (is_array ( $res ) && count ( $res ) > 0) {
-				return $res [0];
-			}
-        }
-        return false;
-    } 
     
 }

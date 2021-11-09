@@ -60,19 +60,4 @@ class Usuario_Model extends Base_Model
 		return false;
     } 
 
-    public function usuariosApp($where)
-    {
-        $resp = false;
-	    $sql = "select u.*,COUNT(IF(v.estado='Activo',u.id,NULL)) frecuencia, count(u.id) frecuenciar";
-        $sql = $sql." FROM usuario u inner join venta v on v.pasajero=u.id ";
-        $sql = $sql." where ".$where." and u.privilegio=5 group by u.id";
-	    $query = $this->db->query($sql);
-	    $res = is_object($query)?$query->result():false;
-	    if(is_array($res) && count($res) > 0){
-	        $resp = $res;
-	    }
-	    
-	    return $resp;
-    }    
-
 }
