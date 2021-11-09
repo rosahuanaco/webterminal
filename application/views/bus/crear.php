@@ -86,7 +86,7 @@
                                   </tr>
                                   <tr id="inputPiso2" style="visibility: collapse;">
                                       <td><label for="filas2">Filas Planta alta</label></td>
-                                      <td><input name="filas2" type="number" class="form-control" placeholder="Filas" id="filas2" min="0" data-bind="value:filas" required></td>
+                                      <td><input name="filas2" type="number" class="form-control" placeholder="Filas" id="filas2" min="0" data-bind="value:filas"></td>
                                   </tr>
                                   <tr>
                                       <td><label for="columnas">Columnas</label></td>
