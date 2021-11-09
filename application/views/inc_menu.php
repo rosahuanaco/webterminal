@@ -134,7 +134,7 @@
           </li>
           <li class="nav-item">
             <a href="<?=site_url('venta/reportes')?>" class="nav-link">
-              <i class="far fa-circle nav-icon"></i>
+              <i class="material-icons">view_list</i>
               <p class="sub">Reportes</p>
             </a>
           </li> 
