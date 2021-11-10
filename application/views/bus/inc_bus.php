@@ -14,11 +14,11 @@
             </ol>
           </div>
         </div>
-      </div> /.container-fluid -->
+      </div> /.container-fluid 
     </section>-->
 
     <!-- Main content -->
-    <section class="content visible" id="ltpublicacion">
+    <section class="content visible">
       <div class="container-fluid">
         <div class="row">
           <div class="col-12">
@@ -31,19 +31,19 @@
               <div class="card-body">
                 <table id="example2" class="table table-bordered table-hover">
                   <thead>
-                  <tr class="sub">
-                  <th>Id</th>
-                    <th>Chofer</th>
-                    <th>Placa</th>
-                    <th>Tipo de bus</th>
-                    <th>Filas</th>
-                    <th>Columnas</th>
-                    <th>Piso</th>
-                    <th>Estado</th>
-                    <th>Foto</th>
-                    <th>Subir</th>
-                    <th>Accion</th>
-                  </tr>
+                    <tr class="sub">
+                        <th>Id</th>
+                        <th>Chofer</th>
+                        <th>Placa</th>
+                        <th>Tipo de bus</th>
+                        <th>Filas</th>
+                        <th>Columnas</th>
+                        <th>Piso</th>
+                        <th>Estado</th>
+                        <th>Foto</th>
+                        <th>Subir</th>
+                        <th>Accion</th>
+                    </tr>
                   </thead>
                   <tbody class="texto">
                     <?php foreach($buses as $bus):?> 
@@ -99,8 +99,8 @@
                     <?php endforeach;?>                
                   </tbody>
                   <tfoot>
-                  <tr class="sub">
-                  <th>Id</th>
+                    <tr class="sub">
+                    <th>Id</th>
                     <th>Chofer</th>
                     <th>Placa</th>
                     <th>tipo</th>

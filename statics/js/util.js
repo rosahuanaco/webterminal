@@ -7,14 +7,21 @@ $( document ).ready(function() {
           $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
         });
       });
+     
+    agregarCrudUsuario();
+    agregarCrudChofer();
+    agregarCrudBus();
+    agregarCrudViajes();
+    reportes();
+    
+});
 
+function agregarCrudUsuario(){
     $(document).on("click", ".deleteUsuario", function(){
         if(confirm("Estas seguro de eliminar el Usuario seleccionado?")){
             eliminarUsuario($(this).attr("data-id"),this);
         }
-    });     
-
-    
+    }); 
 
     $("#frmusuario").submit(function(e) {   
         e.preventDefault();
@@ -56,14 +63,7 @@ $( document ).ready(function() {
              });
         e.preventDefault();
     });
-     
-
-    agregarCrudChofer();
-    agregarCrudBus();
-    agregarCrudViajes();
-    reportes();
-    
-});
+}
 
 function agregarCrudChofer(){
     $(document).on("click", ".deleteChofer", function(){
@@ -163,7 +163,8 @@ function agregarCrudBus(){
     agregarAsientos();
 }
 
-function agregarCrudViajes(){
+function agregarCrudViajes(){   
+
     $("#frmviaje").submit(function(e) {   
         e.preventDefault();
         if(!($('#origen option').filter(':selected').val()==$('#destino option').filter(':selected').val())){
@@ -479,7 +480,16 @@ function reportes(){
                 data: form.serialize(),
                 success: function(o)
                 {                    
-                    $("#reporte_detalle").html(o); 
+                    $("#reporte_detalle").html(o);
+                    $('#example2').DataTable({
+                        "paging": true,
+                        "lengthChange": false,
+                        "searching": false,
+                        "ordering": true,
+                        "info": true,
+                        "autoWidth": false,
+                        "responsive": true,
+                      }); 
                 }
                 });  
         });

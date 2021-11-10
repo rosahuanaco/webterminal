@@ -1,0 +1,49 @@
+@CHARSET "UTF-8";
+
+body {
+	font-size: 15px;
+}
+
+table {
+	page-break-inside: auto
+}
+
+tr {
+	page-break-inside: avoid;
+	page-break-after: auto
+}
+
+tr.Anulado td {
+	text-decoration: underline;
+}
+
+table tbody tr td {
+	border: none;
+	border-left: 1px solid black;
+	border-bottom: 1px solid black;
+	padding: 2px;
+}
+
+table tbody tr td:last-child, table thead tr td:last-child {
+	border-right: 1px solid black;
+}
+table thead tr th{
+	background-color: #114A7F ;
+	color: #FFFFFF;
+}
+
+table thead tr th, table tfoot tr td, table tbody tr:last-child td {
+	border-left: 1px solid black;
+	border-bottom: 1px solid black;
+	border-top: 1px solid black;
+	font-weight: bold;
+	padding: 2px;
+}
+
+table tbody tr:last-child td {
+	border-top: none;
+}
+
+.noprint {
+	display: none;
+}

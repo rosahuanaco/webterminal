@@ -18,8 +18,8 @@
                 <table id="example2" class="table table-bordered table-hover">
                   <thead>
                   <tr class="sub">
-                  <th>Id Viaje</th>
-                  <th>Bus</th>
+                    <th>Id Viaje</th>
+                    <th>Bus</th>
                     <th>Origen</th>
                     <th>Destino</th>   
                     <th>Fecha de Viaje y hora</th>
@@ -50,13 +50,14 @@
                   </tbody>
                   <tfoot>
                   <tr class="sub">
-                  <th>Id Viaje</th>
-                  <th>Bus</th>
+                    <th>Id Viaje</th>
+                    <th>Bus</th>
                     <th>Origen</th>
                     <th>Destino</th>   
                     <th>Fecha de Viaje y hora</th>
                     <th>Precio</th>
                     <th>Estado</th>
+                    <th>Accion</th>
                   </tr>
                   </tfoot>
                 </table>

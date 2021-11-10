@@ -30,11 +30,12 @@
                 <table id="example2" class="table table-bordered table-hover">
                   <thead>
                   <tr class="sub">
-                  <th>Id</th>
-                  <th>Nombre Completo</th>
+                    <th>Id</th>
+                    <th>Nombre Completo</th>
                     <th>CI</th>
                     <th>Licencia</th>
                     <th>Telefono</th>
+                    <th>Accion</th>
                   </tr>
                   </thead>
                   <tbody class="texto">
@@ -61,6 +62,7 @@
                     <th>CI</th>
                     <th>Licencia</th>
                     <th>Telefono</th>
+                    <th>Accion</th>
                   </tr>
                   </tfoot>
                 </table>

@@ -3,18 +3,18 @@
   <?php if(is_array($ventas) && count($ventas)>0):?>
   <!-- /.card-header -->
   <div class="card-body" style="min-height:600px;">
-    <table id="reservas" class="table table-bordered table-striped">
+    <table  id="example2" class="table table-bordered table-hover">
       <thead>
-      <tr class="sub">
-        <th>Id</th>
-        <th>Pasajero</th>
-        <th>Razon social | Nombre</th>
-        <th>Nit | Ci</th>
-        <th>Origen-Destino</th>
-        <th>Bus</th>
-        <th>Fecha Reserva</th>
-        <th>Total</th>
-      </tr>
+        <tr class="sub">
+          <th>Id</th>
+          <th>Pasajero</th>
+          <th>Razon social | Nombre</th>
+          <th>Nit | Ci</th>
+          <th>Origen-Destino</th>
+          <th>Bus</th>
+          <th>Fecha Reserva</th>
+          <th>Total</th>
+        </tr>
       </thead>
       <tbody class="texto">
         <?php $total=0; foreach($ventas as $venta):?> 
@@ -28,7 +28,9 @@
             <td><?=convertDateTimeRev($venta->fecha)?></td>
             <td><?=$venta->total?></td>
           </tr>        
-        <?php $total +=$venta->total;  endforeach;?>  
+        <?php $total +=$venta->total;  endforeach;?>                          
+      </tbody>
+      <tfoot>
           <tr>          
             <td></td>   
             <td></td>
@@ -38,22 +40,8 @@
             <td></td>
             <td>Total:</td>
             <td><?=$total?></td>
-          </tr>              
-      </tbody>
-      <?php if(!isset($reporte)):?>
-      <tfoot>
-      <tr class="sub">
-        <th>Id</th>
-        <th>Pasajero</th>
-        <th>Razon social | Nombre</th>
-        <th>Nit | Ci</th>
-        <th>Origen-Destino</th>
-        <th>Bus</th>
-        <th>Fecha Reserva</th>
-        <th>Total</th>
-      </tr>
+          </tr>
       </tfoot>
-      <?php endif;?>
     </table>
   </div>
   <?php else: ?>
@@ -65,7 +53,7 @@
   <?php if(is_array($pasajeros) && count($pasajeros)>0):?>
   <!-- /.card-header -->
   <div class="card-body" style="min-height:600px;">
-    <table id="reservas" class="table table-bordered table-striped">
+    <table id="example2" class="table table-bordered table-hover">
       <thead>
       <tr class="sub">
         <th>Id</th>
@@ -92,8 +80,11 @@
             <td><?=$pasajero->frecuencia?></td>
             <td><?=$pasajero->frecuenciar?></td>
           </tr>        
-        <?php $total += 1;  endforeach;?>  
-          <tr>          
+        <?php $total += 1;  endforeach;?>                         
+      </tbody>
+      <?php if(!isset($reporte)):?>
+      <tfoot>
+        <tr>          
             <td></td>   
             <td></td>
             <td></td>
@@ -103,21 +94,7 @@
             <td></td>
             <td>Usuarios registrados:</td>
             <td><?=$total?></td>
-          </tr>              
-      </tbody>
-      <?php if(!isset($reporte)):?>
-      <tfoot>
-      <tr class="sub">
-        <th>Id</th>
-        <th>Nombre Completo</th>
-        <th>Ci</th>
-        <th>Correo</th>
-        <th>Telefono</th>
-        <th>Dirección</th>
-        <th>fecha</th>
-        <th>Frecuencia Compra</th>
-        <th>Frecuencia Reserva</th>
-      </tr>
+          </tr> 
       </tfoot>
       <?php endif;?>
     </table>
@@ -131,7 +108,7 @@
   <?php if(is_array($pasajeros) && count($pasajeros)>0):?>
   <!-- /.card-header -->
   <div class="card-body" style="min-height:600px;">
-    <table id="reservas" class="table table-bordered table-striped">
+    <table id="example2" class="table table-bordered table-hover">
       <thead>
       <tr class="sub">
         <th> Nro.Asiento </th>
@@ -142,7 +119,7 @@
       </tr>
       </thead>
       <tbody class="texto">
-        <?php foreach($pasajeros as $pasajero):?> 
+        <?php $total=0; foreach($pasajeros as $pasajero):?> 
           <tr>          
             <td><?=$pasajero->asiento?></td>   
             <td><?=$pasajero->nombre." ".$pasajero->apellido_paterno." ".$pasajero->apellido_materno?></td>
@@ -150,16 +127,16 @@
             <td><?=$pasajero->sexo=='F'?'Femenino':'Maculino'?></td>
             <td><?=$pasajero->precio?></td>
           </tr>        
-        <?php endforeach;?>              
+        <?php $total+=$pasajero->precio; endforeach;?>              
       </tbody>
       <?php if(!isset($reporte)):?>
       <tfoot>
       <tr class="sub">
-        <th>Nro.Asiento</th>
-        <th>Nombre Completo</th>
-        <th>Ci</th>
-        <th>Sexo</th>
-        <th>Precio</th>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Total:</td>
+        <td><?=$total?></td>
       </tr>
       </tfoot>
       <?php endif;?>
@@ -174,7 +151,7 @@
   <?php if(is_array($buses) && count($buses)>0):?>
   <!-- /.card-header -->
   <div class="card-body" style="min-height:600px;">
-    <table id="reservas" class="table table-bordered table-striped">
+    <table id="example2" class="table table-bordered table-hover">
       <thead>
       <tr class="sub">
         <th> Placa </th>
