@@ -82,7 +82,6 @@
           </tr>        
         <?php $total += 1;  endforeach;?>                         
       </tbody>
-      <?php if(!isset($reporte)):?>
       <tfoot>
         <tr>          
             <td></td>   
@@ -96,7 +95,6 @@
             <td><?=$total?></td>
           </tr> 
       </tfoot>
-      <?php endif;?>
     </table>
   </div>
   <?php else: ?>
@@ -129,7 +127,6 @@
           </tr>        
         <?php $total+=$pasajero->precio; endforeach;?>              
       </tbody>
-      <?php if(!isset($reporte)):?>
       <tfoot>
       <tr class="sub">
         <td></td>
@@ -139,7 +136,6 @@
         <td><?=$total?></td>
       </tr>
       </tfoot>
-      <?php endif;?>
     </table>
   </div>
   <?php else: ?>
@@ -172,17 +168,15 @@
           </tr>        
         <?php endforeach;?>              
       </tbody>
-      <?php if(!isset($reporte)):?>
       <tfoot>
         <tr class="sub">
-          <th> Placa </th>
-          <th> Chofer </th>
-          <th> Origen </th>
-          <th> Destino </th>
-          <th> Cantidad Viajes </th>
+          <td> Placa </td>
+          <td> Chofer </td>
+          <td> Origen </td>
+          <td> Destino </td>
+          <td> Cantidad Viajes </td>
         </tr>
       </tfoot>
-      <?php endif;?>
     </table>
   </div>
   <?php else: ?>
