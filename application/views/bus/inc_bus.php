@@ -33,8 +33,8 @@
                   <thead>
                     <tr class="sub">
                         <th>Id</th>
-                        <th>Chofer</th>
                         <th>Placa</th>
+                        <th>Bus</th>
                         <th>Tipo de bus</th>
                         <th>Filas</th>
                         <th>Columnas</th>
@@ -101,8 +101,8 @@
                   <tfoot>
                     <tr class="sub">
                     <th>Id</th>
-                    <th>Chofer</th>
                     <th>Placa</th>
+                    <th>Bus</th>
                     <th>tipo</th>
                     <th>Filas</th>
                     <th>Pisos</th>

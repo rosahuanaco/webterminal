@@ -11,9 +11,9 @@
               <div class="card-header">
                 <h3 class="sub">Reportes</h3>
               </div>
-              <div class="container">                
+              <div class="container texto">                
                 <form id="frmReportes" action="<?=site_url('venta/reporte_detalle')?>">
-                  <div class="row">
+                  <div class="row" style="background-color:#1667BF;color:#ffffff;">
                     <div class="col col-lg-3">
                         <label><input type="radio" name="tipo" value="1" checked/> Ingresos</label>
                     </div>
@@ -87,11 +87,9 @@
                 </form>
                 <div class="row">
                     <div class="col col-lg-1 align-items-center">                      
-                      <label></label>
                       <button class="btn btn-primary" id="btnGeneral">Generar</button>
                     </div>
                     <div class="col col-lg-1 align-items-center">                      
-                      <label></label>
                       <input name="urlImprimir" type="hidden" value="<?=site_url('venta/imprimirReporte')?>" id="urlImprimir" />
                       <button class="btn btn-primary" id="btnImprimir">Imprimir</button>
                     </div>
